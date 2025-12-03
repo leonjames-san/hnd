@@ -4,6 +4,7 @@ interface RatingQuestionProps {
   rating: number | null;
   onRate: (rating: number) => void;
   productColor?: string;
+  imageUrl?: string;
 }
 
 export default function RatingQuestion({
@@ -12,6 +13,7 @@ export default function RatingQuestion({
   rating,
   onRate,
   productColor = 'bg-blue-600',
+  imageUrl,
 }: RatingQuestionProps) {
   return (
     <div className="mb-8">
@@ -20,13 +22,21 @@ export default function RatingQuestion({
         Nota de 1 (Não gostei) a 5 (Gostei muito).
       </p>
 
-      {productName && (
+      {imageUrl ? (
+        <div className="mb-6 flex justify-center">
+          <img
+            src={imageUrl}
+            alt={productName || 'Produto'}
+            className="h-48 object-contain rounded-lg shadow-lg"
+          />
+        </div>
+      ) : productName ? (
         <div
           className={`${productColor} text-white rounded-2xl p-12 mb-6 text-center shadow-lg`}
         >
           <h3 className="text-3xl font-bold">{productName}</h3>
         </div>
-      )}
+      ) : null}
 
       <div className="flex gap-3 justify-center">
         {[1, 2, 3, 4, 5].map((value) => (

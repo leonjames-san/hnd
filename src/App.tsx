@@ -204,6 +204,7 @@ function App() {
                 rating={surveyData.packaging_rating}
                 onRate={handlePackagingRating}
                 productColor="bg-blue-600"
+                imageUrl="https://crescersempremais.com.br/wp-content/uploads/2025/12/Kit-Grace-Empire-1.png"
               />
             )}
 
