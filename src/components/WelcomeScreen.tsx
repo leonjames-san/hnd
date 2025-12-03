@@ -32,7 +32,7 @@ export default function WelcomeScreen({ onStart }: WelcomeScreenProps) {
         <div className="bg-white rounded-2xl shadow-xl overflow-hidden border-t-4 border-blue-600">
           <div className="p-8">
             <h1 className="text-3xl font-bold text-gray-900 text-center mb-1">
-              Descubra Seu Perfume Ideal
+              Descobrindo sua melhor essência
             </h1>
             <p className="text-gray-600 text-center text-base mb-2 font-medium">
               Uma jornada sensorial exclusiva

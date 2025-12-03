@@ -161,7 +161,7 @@ function App() {
           <div className="bg-white rounded-2xl shadow-xl overflow-hidden border-t-4 border-blue-600">
             <div className="p-8">
               <h1 className="text-3xl font-bold text-gray-900 text-center mb-2">
-                Descubra Seu Perfume Ideal
+                Descobrindo sua melhor essência
               </h1>
               <p className="text-gray-500 text-center text-sm mb-4">
                 Data: {currentDate} | Hora: {currentTime}
@@ -188,7 +188,7 @@ function App() {
         <div className="bg-white rounded-2xl shadow-xl overflow-hidden border-t-4 border-blue-600">
           <div className="p-8">
             <h1 className="text-3xl font-bold text-gray-900 text-center mb-2">
-              Descubra Seu Perfume Ideal
+              Descobrindo sua melhor essência
             </h1>
             <p className="text-gray-500 text-center text-sm mb-4">
               Data: {currentDate} | Hora: {currentTime}
