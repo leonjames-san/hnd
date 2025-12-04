@@ -4,6 +4,7 @@ import { SurveyData } from './types/survey';
 import WelcomeScreen from './components/WelcomeScreen';
 import RatingQuestion from './components/RatingQuestion';
 import FragranceTest from './components/FragranceTest';
+import FragranceInfo from './components/FragranceInfo';
 import PurchaseInterest from './components/PurchaseInterest';
 import ContactCollection from './components/ContactCollection';
 import SurveySummary from './components/SurveySummary';
@@ -12,6 +13,7 @@ type Step =
   | 'welcome'
   | 'packaging'
   | 'grace-test'
+  | 'grace-info'
   | 'grace-rating'
   | 'empire-test'
   | 'empire-rating'
@@ -70,7 +72,7 @@ function App() {
     setSurveyData({ ...surveyData, grace_midnight_tried: tried });
     saveResponse('grace_midnight_tried', tried.toString());
     if (tried) {
-      setCurrentStep('grace-rating');
+      setCurrentStep('grace-info');
     } else {
       setCurrentStep('empire-test');
     }
@@ -214,6 +216,13 @@ function App() {
                 color="pink"
                 onTry={() => handleGraceTest(true)}
                 onSkip={() => handleGraceTest(false)}
+              />
+            )}
+
+            {currentStep === 'grace-info' && (
+              <FragranceInfo
+                fragranceName="Grace Midnight"
+                onNext={() => setCurrentStep('grace-rating')}
               />
             )}
 
