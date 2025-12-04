@@ -27,7 +27,7 @@ export default function RatingQuestion({
           <img
             src={imageUrl}
             alt={productName || 'Produto'}
-            className="h-48 object-contain rounded-lg shadow-lg"
+            className="h-96 object-contain rounded-lg shadow-lg"
           />
         </div>
       ) : productName ? (
