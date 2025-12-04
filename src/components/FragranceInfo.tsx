@@ -19,19 +19,12 @@ export default function FragranceInfo({ fragranceName, onNext }: FragranceInfoPr
       id: 'notes',
       title: '1 - Notas Olfativas',
       content: (
-        <div className="space-y-4">
-          <div>
-            <p className="font-semibold text-gray-900 mb-2">Notas de topo:</p>
-            <p className="text-gray-700">Tangerina, maçã e framboesa, trazendo frescor e doçura inicial.</p>
-          </div>
-          <div>
-            <p className="font-semibold text-gray-900 mb-2">Notas de coração:</p>
-            <p className="text-gray-700">Rosa, jasmim e lírio-do-vale (muguet), que fornecem um bouquet floral delicado e elegante.</p>
-          </div>
-          <div>
-            <p className="font-semibold text-gray-900 mb-2">Notas de fundo:</p>
-            <p className="text-gray-700">Sândalo, baunilha e almíscar (musk), conferindo um acabamento quente, amadeirado e sedutor.</p>
-          </div>
+        <div className="w-full">
+          <img
+            src="https://crescersempremais.com.br/wp-content/uploads/2025/12/3b56d1d1-0270-4c89-9d2f-6cfeb72b1591.png"
+            alt="Notas Olfativas"
+            className="w-full h-auto rounded-lg"
+          />
         </div>
       ),
     },
