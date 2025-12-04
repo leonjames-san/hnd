@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, X } from 'lucide-react';
 
 interface FragranceInfoProps {
   fragranceName: string;
@@ -8,6 +8,7 @@ interface FragranceInfoProps {
 
 export default function FragranceInfo({ fragranceName, onNext }: FragranceInfoProps) {
   const [expanded, setExpanded] = useState<string | null>(null);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const toggleSection = (section: string) => {
     setExpanded(expanded === section ? null : section);
@@ -56,19 +57,57 @@ export default function FragranceInfo({ fragranceName, onNext }: FragranceInfoPr
       id: 'similar',
       title: '4 - Semelhança Olfativa',
       content: (
-        <div className="space-y-3">
-          <div>
-            <p className="font-semibold text-gray-900">La Vie Est Belle Lancôme (100ml)</p>
-            <p className="text-gray-700">R$ 535 a R$ 950</p>
+        <div className="space-y-4">
+          <div className="grid grid-cols-3 gap-4">
+            <div
+              onClick={() => setSelectedImage('https://crescersempremais.com.br/wp-content/uploads/2025/12/La-vie-est-belle.webp')}
+              className="cursor-pointer group"
+            >
+              <div className="relative overflow-hidden rounded-lg bg-gray-100 aspect-square mb-2 shadow-sm hover:shadow-md transition-all">
+                <img
+                  src="https://crescersempremais.com.br/wp-content/uploads/2025/12/La-vie-est-belle.webp"
+                  alt="La Vie Est Belle"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                />
+              </div>
+              <p className="font-semibold text-gray-900 text-sm">La Vie Est Belle</p>
+              <p className="text-gray-700 text-xs">Lancôme (100ml)</p>
+              <p className="text-gray-600 text-xs mt-1">R$ 535 a R$ 950</p>
+            </div>
+
+            <div
+              onClick={() => setSelectedImage('https://crescersempremais.com.br/wp-content/uploads/2025/12/Black-opium.jpg')}
+              className="cursor-pointer group"
+            >
+              <div className="relative overflow-hidden rounded-lg bg-gray-100 aspect-square mb-2 shadow-sm hover:shadow-md transition-all">
+                <img
+                  src="https://crescersempremais.com.br/wp-content/uploads/2025/12/Black-opium.jpg"
+                  alt="Black Opium"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                />
+              </div>
+              <p className="font-semibold text-gray-900 text-sm">Black Opium</p>
+              <p className="text-gray-700 text-xs">Yves Saint Laurent (90ml)</p>
+              <p className="text-gray-600 text-xs mt-1">R$ 760 a R$ 1.090</p>
+            </div>
+
+            <div
+              onClick={() => setSelectedImage('https://crescersempremais.com.br/wp-content/uploads/2025/12/Googd-Girl-Carolina-Herrera.jpg')}
+              className="cursor-pointer group"
+            >
+              <div className="relative overflow-hidden rounded-lg bg-gray-100 aspect-square mb-2 shadow-sm hover:shadow-md transition-all">
+                <img
+                  src="https://crescersempremais.com.br/wp-content/uploads/2025/12/Googd-Girl-Carolina-Herrera.jpg"
+                  alt="Good Girl"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                />
+              </div>
+              <p className="font-semibold text-gray-900 text-sm">Good Girl</p>
+              <p className="text-gray-700 text-xs">Carolina Herrera (30ml)</p>
+              <p className="text-gray-600 text-xs mt-1">R$ 415</p>
+            </div>
           </div>
-          <div>
-            <p className="font-semibold text-gray-900">Black Opium Yves Saint Laurent (90ml)</p>
-            <p className="text-gray-700">R$ 760 a R$ 1.090</p>
-          </div>
-          <div>
-            <p className="font-semibold text-gray-900">Good Girl Carolina Herrera (30ml)</p>
-            <p className="text-gray-700">Preço médio R$ 415</p>
-          </div>
+          <p className="text-sm text-gray-500 italic">Clique nas imagens para visualizar em tamanho maior</p>
         </div>
       ),
     },
@@ -113,6 +152,30 @@ export default function FragranceInfo({ fragranceName, onNext }: FragranceInfoPr
       >
         Continuar
       </button>
+
+      {selectedImage && (
+        <div
+          onClick={() => setSelectedImage(null)}
+          className="fixed inset-0 bg-black/75 flex items-center justify-center z-50 p-4"
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="relative max-w-2xl w-full"
+          >
+            <button
+              onClick={() => setSelectedImage(null)}
+              className="absolute -top-10 right-0 text-white hover:text-gray-300 transition-colors"
+            >
+              <X size={28} />
+            </button>
+            <img
+              src={selectedImage}
+              alt="Visualização completa"
+              className="w-full h-auto rounded-lg shadow-2xl"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
